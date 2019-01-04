@@ -75,7 +75,7 @@ export class rateStar {
         
         // save to back-end
         !this._verify() ? e.preventDefault() : sendPost({
-          url: 'core.php',
+          url: 'RateController.php',
           data: `rate=1&art=${this._docId}&val=${key}`,
           cb: (xhr) => {
             localStorage.setItem(this._docId, key);
