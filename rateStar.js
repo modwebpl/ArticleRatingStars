@@ -69,7 +69,6 @@ export class rateStar {
             this._el.firstElementChild.style.width = '100%';
             break;
         }
-        new DOMParser();
       });
 
       val.addEventListener('click', (e) => {
