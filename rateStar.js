@@ -72,7 +72,8 @@ export class rateStar {
       });
 
       val.addEventListener('click', (e) => {
-
+        
+        // save to back-end
         !this._verify() ? e.preventDefault() : sendPost({
           url: 'core.php',
           data: `rate=1&art=${this._docId}&val=${key}`,
