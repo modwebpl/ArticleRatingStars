@@ -1,9 +1,5 @@
 export class rateStar {
   constructor() {
-    this.init()
-  }
-
-  init() {
     if (!this._setVars()) return;
     this._setEvents();
   }
@@ -88,12 +84,7 @@ export class rateStar {
   }
 
   _verify() {
-    try {
-      if (localStorage.getItem(this._docId)) return false;
-      return true;
-    } catch (e) {
-      return true;
-    }
+    return localStorage.getItem(this._docId)) ? false : true;
   }
 
   _cleanStars() {
