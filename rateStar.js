@@ -90,9 +90,7 @@ export class rateStar {
   _cleanStars() {
     this._el.parentNode.parentNode.addEventListener('mouseleave', () => {
       this._el.firstElementChild.style.width = this._el.firstElementChild.dataset.width;
-      !this._verify() ? each(this._el.children, (key, val) => {
-        val.style.cursor = '';
-      }) : '';
+      !this._verify() && each(this._el.children, (key, val) => { val.style.cursor = '' });
     });
   }
 }
