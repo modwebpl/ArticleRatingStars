@@ -1,35 +1,40 @@
 .rate {
-  font-size: 16px;.stars-outer {
-  position: relative;
-  display: flex;
-  min-width: 105px;
-  background: url(../img/star-regular.svg) 0 0 / 21px 19px scroll repeat-x;
-  .star {
-    position: relative;
-    top: 0;
-    width: 21px;
-    min-width: 21px;
-    height: 19px;
-    z-index: 100;
-    cursor: not-allowed;
-  }
-  .stars-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    bottom: 0;
-    margin: auto;
-    height: 19px;
-    background: url(../img/star-solid.svg) 0 50% / 21px 19px scroll repeat-x;
-  }
-}
-  line-height: 18px;
-  font-weight: 600;
-  span {
-    font-weight: 300;
-  }
+    font-size: 16px;
+    .stars-outer {
+        position: relative;
+        display: flex;
+        min-width: 105px;
+        background: url(../img/star-regular.svg) 0 0 / 21px 19px scroll repeat-x;
+
+        .star {
+            position: relative;
+            top: 0;
+            width: 21px;
+            min-width: 21px;
+            height: 19px;
+            z-index: 100;
+            cursor: not-allowed;
+        }
+
+        .stars-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            bottom: 0;
+            margin: auto;
+            height: 19px;
+            background: url(../img/star-solid.svg) 0 50% / 21px 19px scroll repeat-x;
+        }
+    }
+
+    line-height: 18px;
+    font-weight: 600;
+
+    span {
+        font-weight: 300;
+    }
 }
