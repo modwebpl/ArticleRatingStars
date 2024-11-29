@@ -7,15 +7,15 @@ export class rateStar {
   _setVars() {
     let _this = this;
 
-    _this._el = document.getElementById('rate');
-    if (!this._el || !this._el.children) return false;
+    _this._el = document.body.getElementsByClassName('rate')[0]
+    if (!this._el || !this._el.children) return false
+    
+    _this._docId = parseFloat(this._el.dataset.id) || false
+    if (!this._docId) return false
 
-    _this._docId = parseFloat(this._el.dataset.id) || false;
-    if (!this._docId) return false;
+    _this._rate = parseFloat(this._el.dataset.rate) || 0
 
-    _this._rate = parseFloat(this._el.dataset.rate) || 0;
-
-    _this._starTotal = this._el.children.length - 2;
+    _this._starTotal = this._el.children.length - 2
 
     return true;
   }
