@@ -7,6 +7,7 @@ import rateStar from "./class/rateStar";
 
 
 let rates = document.body.querySelectorAll('[data-rate]')
+
 rates.length && each(rates, (key, val) => new rateStar(val))
 
 
