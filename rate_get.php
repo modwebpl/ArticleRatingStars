@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../../wp-load.php';
-require_once __DIR__ . '/../lib/FormRequest.php';
+require_once __DIR__ . '/../../FormRequest.php';
 global $wpdb;
 
 $request = new FormRequest('json');
