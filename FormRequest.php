@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: modweb
- * Date: 06/08/2019
- * Time: 11:51
- */
-
 class FormRequest
 {
     private $post;
