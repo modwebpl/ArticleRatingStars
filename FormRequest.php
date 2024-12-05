@@ -106,26 +106,13 @@ class FormRequest
         $str = preg_replace('/\x00|<[^>]*>?/', '', $val);
         $val = str_replace(["'", '"'], ['&#39;', '&#34;'], $str);
 
-        switch ($name) {
-            case 'email':
-                return filter_var(strtolower($val), FILTER_VALIDATE_EMAIL);
-            case 'url':
-                return filter_var($val, FILTER_SANITIZE_URL, FILTER_FLAG_PATH_REQUIRED);
-            case 'pass':
-                return urldecode($val);
-            case 'utf-8':
-            case 'utf8':
-                return mb_convert_encoding($val, 'UTF-8');
-            default:
-                return filter_var($val, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        }
-        // php 8
-        /*return match ($name) {
+        return match ($name) {
             'email' => filter_var(strtolower($val), FILTER_VALIDATE_EMAIL),
             'url' => filter_var($val, FILTER$this->sanitize_URL, FILTER_FLAG_PATH_REQUIRED),
             'pass' => urldecode($val),
-            default => filter_var($val, FILTER$this->sanitize_STRING),
-        };*/
+            'utf-8' => mb_convert_encoding($val, 'UTF-8'),
+            default => filter_var($val, FILTER$this->sanitize_STRING)
+        };
     }
 
     public function is_nip($str)
@@ -193,34 +180,6 @@ class FormRequest
     public function set($key, $val)
     {
         return $this->obj->$key = $val;
-    }
-
-    function clean(bool $token = false)
-    {
-        $_SESSION = [];
-        return $this->refresh($token);
-    }
-
-    function set_csrf(int $length = 10)
-    {
-        return $_SESSION['csrf'] = bin2hex(openssl_random_pseudo_bytes($length));
-    }
-
-    function get_csrf()
-    {
-        return $_SESSION['csrf'];
-    }
-
-    function refresh(bool $token = false)
-    {
-        if ($token) $this->set_csrf();
-        return session_regenerate_id(true);
-    }
-
-    function terminate(string $msg = 'Fatal error', string $url = '')
-    {
-        $this->clean();
-        die(json_encode(['status' => false, 'messages' => $msg, 'msg' => $msg, 'url' => $url]));
     }
 
     function validate(string $key, $val = '', array $fillable, array $nullable, string $url = '', string $msg = 'Error: Invalid data')
